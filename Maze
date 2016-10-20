@@ -38,7 +38,7 @@ namespace ConsoleApplication13
                     {
                         //We create the obstacle cells.
                         //rand determines how often we are going to get obstacle cells
-                        int rand = r.Next(0, 5);
+                        int rand = r.Next(0, 9);
                         if (rand == 0)
                         {
                             //We declare some random cells to be our obstacles
@@ -177,31 +177,35 @@ namespace ConsoleApplication13
                     }
                 }
             }
+            //WARNING!
+            //Keep in mind that the obstacles are put in such a way so that the entrance and
+            //the exit must not be blocked. 
+            //In such a case you have to run the console again.
 
 
-                    //We declare the starting point of the hero and the exit of the labyrinth 
-                    //in order to avoid clumpsy algorithm that will generate a random starting and finishing point.
+            //We declare the starting point of the hero and the exit of the labyrinth 
+            //in order to avoid clumpsy algorithm that will generate a random starting and finishing point.
 
-                    //We manually put Hero's starting point.
-                    int x_hero = 0;
-                    int y_hero = 0;
+            //We manually put Hero's starting point.
+            int x_hero = 0;
+            int y_hero = 0;
 
-                    //We manually put maze's Exit Point
-                    int x_exit = 4;
-                    int y_exit = 4;
+            //We manually put maze's Exit Point
+            int x_exit = 4;
+            int y_exit = 4;
 
-                    bool repeat = true;
+            bool repeat = true;
 
-                    Console.WriteLine("The path of the hero was");
-                    while (repeat)
-                    {
-                        hero.Forward(ref x_hero, ref y_hero);
-                        Console.WriteLine("{" + x_hero + "}" + " " + "{" + y_hero + "}");
-                        if (x_hero == x_exit && y_hero == y_exit)
-                        {
-                            repeat = false;
-                        }
-                    }
+            Console.WriteLine("The path of the hero was");
+            while (repeat)
+            {
+                hero.Forward(ref x_hero, ref y_hero);
+                Console.WriteLine("{" + x_hero + "}" + " " + "{" + y_hero + "}");
+                if (x_hero == x_exit && y_hero == y_exit)
+                {
+                    repeat = false;
+                }
+            }
             Console.WriteLine("Congratsulations! The hero has reached his goal!");
         }
     }
