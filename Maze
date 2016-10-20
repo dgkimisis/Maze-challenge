@@ -79,26 +79,37 @@ namespace ConsoleApplication13
                     //We clean up the Steps list to refill it with the new values
                     Steps.Clear();
 
-                    if (x < Size - 1) //&& maze[x + 1, y] != 0);
+                    if (x < Size - 1)
                     {
-                        Steps.Add(Count[x + 1, y]);
-                        failsafe1 = true;
-
+                        if (maze[x + 1, y] == 1)
+                        {
+                            Steps.Add(Count[x + 1, y]);
+                            failsafe1 = true;
+                        }
                     }
-                    if (x > 0) //&& maze[x - 1, y] != 0);
+                    if (x > 0)
                     {
-                        Steps.Add(Count[x - 1, y]);
-                        failsafe2 = true;
+                        if (maze[x - 1, y] == 1)
+                        {
+                            Steps.Add(Count[x - 1, y]);
+                            failsafe2 = true;
+                        }
                     }
-                    if (y < Size - 1) //&& maze[x, y + 1] != 0);
+                    if (y < Size - 1)
                     {
-                        Steps.Add(Count[x, y + 1]);
-                        failsafe3 = true;
+                        if (maze[x, y + 1] == 1)
+                        {
+                            Steps.Add(Count[x, y + 1]);
+                            failsafe3 = true;
+                        }
                     }
-                    if (y > 0) //&& maze[x, y - 1] != 0);
+                    if (y > 0)
                     {
-                        Steps.Add(Count[x, y - 1]);
-                        failsafe4 = true;
+                        if (maze[x, y - 1] == 1)
+                        {
+                            Steps.Add(Count[x, y - 1]);
+                            failsafe4 = true;
+                        }
                     }
                 }
 
@@ -190,8 +201,8 @@ namespace ConsoleApplication13
                         {
                             repeat = false;
                         }
-
                     }
-                }
-            }
+            Console.WriteLine("Congratsulations! The hero has reached his goal!");
         }
+    }
+}
